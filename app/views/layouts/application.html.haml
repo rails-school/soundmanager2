@@ -9,13 +9,11 @@
     YO
     = yield
 
-    :javascript
-      aletr("yo");
     :coffeescript
       soundManager.setup
         url: '#{asset_path('soundmanager2_flash9_debug.swf')}'
         flashVersion: 9
-        #optional: ignore Flash where possible, use 100% HTML5 mode
         preferFlash: false
-        onready: ->
-          alert "ready"
+
+      window.Radio ||= {}
+      Radio.talks = #{Talk.all.to_json}

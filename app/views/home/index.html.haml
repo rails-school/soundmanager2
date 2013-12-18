@@ -1,1 +1,18 @@
-%h1 Hi
+%div{ng: {controller: 'PlaylistCtrl'}}
+  %div{ng: {repeat: 'talk in talks'}}
+    %h4
+      {{talk.title}}
+    %p
+      {{talk.url}}
+    %button{ng: {click: 'play(talk)'}}
+      Play
+    %button{ng: {click: 'stop()'}}
+      Stop
+  .button{ng: {click: 'nextTalk()'}}
+    NEXT SOUND!!!
+
+  .now
+    Now playing {{currentTalk.title}} talk
+
+  #scrubber{ng: {click: 'seekTo($event)'}}
+    .progress{style: 'width: {{progress}}%'}
